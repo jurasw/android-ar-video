@@ -15,8 +15,8 @@
 	<script type="module">
 		import { ARButton } from 'https://unpkg.com/three@0.133.0/examples/jsm/webxr/ARButton.js';
 
-    const VIDEO_WIDTH = 640; // original video width
-    const VIDEO_HEIGHT = 360; // original video height
+    const VIDEO_WIDTH = 320; // original video width
+    const VIDEO_HEIGHT = 180; // original video height
     
 		let container;
 		let camera, scene, renderer;
@@ -103,8 +103,8 @@
       video.loop = true; // for autolooping
       
       videoCanvas = document.createElement('canvas');
-      videoCanvas.width = 270;
-      videoCanvas.height = 480;
+      videoCanvas.width = VIDEO_WIDTH;
+      videoCanvas.height = VIDEO_HEIGHT;
 
       // The canvas element is the actual DOM node that's embedded in the HTML page. 
       // The canvas context is an object with properties and methods that you can use 
