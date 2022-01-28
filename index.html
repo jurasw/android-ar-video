@@ -9,12 +9,14 @@
     <script src="https://unpkg.com/three@0.133.0/build/three.js" crossorigin="anonymous"></script>
   </head>
 
+  
 <body>  
+  <div id="console-ui"></div>
 	<script type="module">
 		import { ARButton } from 'https://unpkg.com/three@0.133.0/examples/jsm/webxr/ARButton.js';
 
-    const VIDEO_WIDTH = 1280; // original video width
-    const VIDEO_HEIGHT = 720; // original video height
+    const VIDEO_WIDTH = 640; // original video width
+    const VIDEO_HEIGHT = 360; // original video height
     
 		let container;
 		let camera, scene, renderer;
@@ -47,7 +49,12 @@
       videoMesh.position.set(0,0, -1);
       scene.add(videoMesh);
 
-      const button = ARButton.createButton(renderer)
+      const button = ARButton.createButton(renderer, {
+        optionalFeatures: ["dom-overlay", "dom-overlay-for-handheld-ar"],
+        domOverlay: {
+          root: document.body
+        }
+      });
 			document.body.appendChild(button);
       
       // play a video when a user clicks on the start AR button
@@ -75,6 +82,7 @@
 		function render() {
       if (video) {
         if (video.readyState === video.HAVE_ENOUGH_DATA) {
+          videoCanvasContext.clearRect(0, 0, VIDEO_WIDTH, VIDEO_HEIGHT);
           videoCanvasContext.drawImage(video, 0, 0);
           if (videoTexture) 
             videoTexture.needsUpdate = true;
@@ -86,14 +94,13 @@
     
     function createCanvasWithVideo() {
       video = document.createElement('video');
-      video.src = "https://cdn.glitch.me/b09d0ef2-cbb9-4685-be74-25b4dbc9e604%2Fring.mov?v=1636679010942";
+      // IMPORTANT: This video has to be a video with transparency! Recommended format is webm
+      video.src = "jurasw/android-ar-video/IMG_1687.MOV.webm";
       video.crossOrigin = "anonymous"; //important!
       video.load(); // call after changing source
       video.preload = 'auto';
       video.autoload = true;
       video.loop = true; // for autolooping
-      video.setAttribute('playsinline', false); // need this for ios
-      video.setAttribute('webkit-playsinline', false); // need this for ios
       
       videoCanvas = document.createElement('canvas');
       videoCanvas.width = VIDEO_WIDTH;
@@ -130,7 +137,6 @@
     }
     
     function playVideo() {
-      console.log("play video");
       video.play();
     }
 	</script>
