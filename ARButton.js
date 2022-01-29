@@ -177,7 +177,7 @@ class ARButton {
 			} else {
 
 				message.href = 'https://datbrothers.com/aldi-alt/';
-				message.innerHTML = 'WEBXR NOT AVAILABLE';
+				message.innerHTML = 'AR niekatywny włącz video';
 
 			}
 
