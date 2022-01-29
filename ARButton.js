@@ -129,7 +129,7 @@ class ARButton {
 
 			disableButton();
 
-			button.textContent = 'AR NOT SUPPORTED';
+			button.textContent = 'AR niekatywny włącz video';
 
 		}
 
@@ -176,7 +176,7 @@ class ARButton {
 
 			} else {
 
-				message.href = 'https://immersiveweb.dev/';
+				message.href = 'https://datbrothers.com/aldi-alt/';
 				message.innerHTML = 'WEBXR NOT AVAILABLE';
 
 			}
