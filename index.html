@@ -68,6 +68,8 @@
       })
   // specify a model URL
   const modelUrl = 'https://cdn.glitch.global/9511f6c0-c3b8-4349-9742-2697568cae91/przycisk_infolinia.glb?v=1645215672202';
+  const modelUrl2 = 'https://cdn.glitch.global/9511f6c0-c3b8-4349-9742-2697568cae91/przycisk_aplikuj.glb?v=16452158344432';
+  const modelUrl3 = 'https://cdn.glitch.global/9511f6c0-c3b8-4349-9742-2697568cae91/aldi3dv2.glb?v=1645215834151';
       
 			// create a GLTF loader object. GLTF is a 3D model format usually called the "JPEG of 3D" because it is
       // fast and efficient to use, which is ideal for the web
@@ -92,6 +94,58 @@
           gltf.scene.position.z = -0.5; // negative Z moves the model in the opposite direction the camera is facing	
           gltf.scene.position.y = -0.1; // positive Y moves the model up	
           gltf.scene.position.x = 0.2; // positive X moves the model to the right	
+				},	
+				// onProgress callback: optional function for showing progress on model load	
+				function (xhr) {	
+		      // console.log((xhr.loaded / xhr.total * 100) + '% loaded' );	
+	      },	
+				// onError callback	
+				function (error) {	
+					console.error(error);	
+				}	
+			);	
+
+      loader.load(	
+				// model URL	
+				modelUrl2,	
+				// onLoad callback: what get's called once the full model has loaded	
+				function (gltf) {	
+          // gltf.scene contains the Three.js object group that represents the 3d object of the model	
+					scene.add(gltf.scene);	
+          console.log("Model added to scene");	
+          	
+          gltf.scene.scale.multiplyScalar(3);	
+                    	
+          // you can optionally change the position of the model	
+          gltf.scene.position.z = -0.5; // negative Z moves the model in the opposite direction the camera is facing	
+          gltf.scene.position.y = -0.1; // positive Y moves the model up	
+          gltf.scene.position.x = -0.2; // positive X moves the model to the right	
+				},	
+				// onProgress callback: optional function for showing progress on model load	
+				function (xhr) {	
+		      // console.log((xhr.loaded / xhr.total * 100) + '% loaded' );	
+	      },	
+				// onError callback	
+				function (error) {	
+					console.error(error);	
+				}	
+			);	
+
+      loader.load(	
+				// model URL	
+				modelUrl3,	
+				// onLoad callback: what get's called once the full model has loaded	
+				function (gltf) {	
+          // gltf.scene contains the Three.js object group that represents the 3d object of the model	
+					scene.add(gltf.scene);	
+          console.log("Model added to scene");	
+          	
+          gltf.scene.scale.multiplyScalar(3);	
+                    	
+          // you can optionally change the position of the model	
+          gltf.scene.position.z = -0.5; // negative Z moves the model in the opposite direction the camera is facing	
+          gltf.scene.position.y = -0.2; // positive Y moves the model up	
+          // gltf.scene.position.x = 0.2; // positive X moves the model to the right	
 				},	
 				// onProgress callback: optional function for showing progress on model load	
 				function (xhr) {	
