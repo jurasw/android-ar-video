@@ -140,12 +140,12 @@
 					scene.add(gltf.scene);	
           console.log("Model added to scene");	
           	
-          gltf.scene.scale.multiplyScalar(2);	
+          gltf.scene.scale.multiplyScalar(1);	
                     	
           // you can optionally change the position of the model	
-          gltf.scene.position.z = -0.5; // negative Z moves the model in the opposite direction the camera is facing	
+          gltf.scene.position.z =  2; // negative Z moves the model in the opposite direction the camera is facing	
           gltf.scene.position.y = -0.2; // positive Y moves the model up	
-          gltf.scene.position.x = -0.1; // positive X moves the model to the right	
+          gltf.scene.position.x = -0.3; // positive X moves the model to the right	
 				},	
 				// onProgress callback: optional function for showing progress on model load	
 				function (xhr) {	
