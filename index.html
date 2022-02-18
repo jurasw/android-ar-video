@@ -67,8 +67,9 @@
         // setTimeout(playVideo, 2000);
       })
   // specify a model URL
-  const modelUrl = 'https://cdn.glitch.me/b09d0ef2-cbb9-4685-be74-25b4dbc9e604%2Favocado.glb?v=1636661024905';
-      
+  const modelUrl = 'https://github.dev/jurasw/android-ar-video/blob/2886c684de4c893a37ce20be915941bc8f8c1071/przycisk_aplikuj.glb';
+  const modelUrl2 = 'https://github.dev/jurasw/android-ar-video/blob/2886c684de4c893a37ce20be915941bc8f8c1071/przycisk_infolinia.glb';
+  const modelUrl3 = 'https://github.dev/jurasw/android-ar-video/blob/2886c684de4c893a37ce20be915941bc8f8c1071/aldi3dv2.glb';    
 			// create a GLTF loader object. GLTF is a 3D model format usually called the "JPEG of 3D" because it is
       // fast and efficient to use, which is ideal for the web
 			loader = new THREE.GLTFLoader();
@@ -91,6 +92,58 @@
           // you can optionally change the position of the model	
           gltf.scene.position.z = -0.5; // negative Z moves the model in the opposite direction the camera is facing	
           gltf.scene.position.y = -0.1; // positive Y moves the model up	
+          gltf.scene.position.x = 2; // positive X moves the model to the right	
+				},	
+				// onProgress callback: optional function for showing progress on model load	
+				function (xhr) {	
+		      // console.log((xhr.loaded / xhr.total * 100) + '% loaded' );	
+	      },	
+				// onError callback	
+				function (error) {	
+					console.error(error);	
+				}	
+			);	
+
+      loader.load(	
+				// model URL	
+				modelUrl2,	
+				// onLoad callback: what get's called once the full model has loaded	
+				function (gltf) {	
+          // gltf.scene contains the Three.js object group that represents the 3d object of the model	
+					scene.add(gltf.scene);	
+          console.log("Model added to scene");	
+          	
+          gltf.scene.scale.multiplyScalar(3);	
+                    	
+          // you can optionally change the position of the model	
+          gltf.scene.position.z = -0.5; // negative Z moves the model in the opposite direction the camera is facing	
+          gltf.scene.position.y = -0.1; // positive Y moves the model up	
+          gltf.scene.position.x = -2; // positive X moves the model to the right	
+				},	
+				// onProgress callback: optional function for showing progress on model load	
+				function (xhr) {	
+		      // console.log((xhr.loaded / xhr.total * 100) + '% loaded' );	
+	      },	
+				// onError callback	
+				function (error) {	
+					console.error(error);	
+				}	
+			);	
+
+      loader.load(	
+				// model URL	
+				modelUrl3,	
+				// onLoad callback: what get's called once the full model has loaded	
+				function (gltf) {	
+          // gltf.scene contains the Three.js object group that represents the 3d object of the model	
+					scene.add(gltf.scene);	
+          console.log("Model added to scene");	
+          	
+          gltf.scene.scale.multiplyScalar(3);	
+                    	
+          // you can optionally change the position of the model	
+          gltf.scene.position.z = -0.5; // negative Z moves the model in the opposite direction the camera is facing	
+          gltf.scene.position.y = -1; // positive Y moves the model up	
           // gltf.scene.position.x = 10; // positive X moves the model to the right	
 				},	
 				// onProgress callback: optional function for showing progress on model load	
