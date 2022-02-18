@@ -15,8 +15,8 @@
 	<script type="module">
 		import { ARButton } from 'https://jurasw.github.io/android-ar-video/ARButton.js';
 
-    const VIDEO_WIDTH = 16; // original video width
-    const VIDEO_HEIGHT = 9; // original video height
+    const VIDEO_WIDTH = 1080; // original video width
+    const VIDEO_HEIGHT = 1920; // original video height
     
 		let container;
 		let camera, scene, renderer;
@@ -119,7 +119,7 @@
       // tthe unites here have to corespond to ratio/size of video but scaled down to 
       // webxr units. So in this case the original video was aspect ratio 16 : 9 
       // but those units would be too large for webxr, so we divide by 10
-      const geometry = new THREE.PlaneGeometry(1.6, 0.9); 
+      const geometry = new THREE.PlaneGeometry(0.9, 1.6); 
       
       // then we setup a material associated with the video through a texture
       videoTexture = new THREE.Texture(videoCanvas);
