@@ -94,6 +94,9 @@
           gltf.scene.position.z = -0.7; // negative Z moves the model in the opposite direction the camera is facing	
           gltf.scene.position.y = 0.1; // positive Y moves the model up	
           gltf.scene.position.x = -0.18; // positive X moves the model to the right	
+
+          gltf.onclick = infoliniaWebsite();	
+
 				},	
 				// onProgress callback: optional function for showing progress on model load	
 				function (xhr) {	
@@ -120,7 +123,9 @@
           gltf.scene.position.z = -0.7; // negative Z moves the model in the opposite direction the camera is facing	
           gltf.scene.position.y = 0.1; // positive Y moves the model up	
           gltf.scene.position.x = 0.18; // positive X moves the model to the right	
-				},	
+
+          gltf.onclick = aplikujWebsite();
+        },	
 				// onProgress callback: optional function for showing progress on model load	
 				function (xhr) {	
 		      // console.log((xhr.loaded / xhr.total * 100) + '% loaded' );	
@@ -189,6 +194,14 @@
 
 			renderer.render(scene, camera);
 		}
+
+    function aplikujWebsite() {
+      window.open("https://www.youtube.com/watch?v=8PB9GHZ-GiM&ab_channel=PatrickC");
+    }
+
+    function infoliniaWebsite() {
+      window.open('tel:506507759');
+    }
     
     function createCanvasWithVideo() {
       video = document.createElement('video');
