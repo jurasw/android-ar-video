@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
     <link type="text/css" rel="stylesheet" href="style.css" />
     <script src="https://unpkg.com/three@0.133.0/build/three.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/three@0.133.0/examples/js/loaders/GLTFLoader.js"></script>
   </head>
 
   
@@ -64,6 +65,38 @@
         // optionally wait three seconds before playing the video
         // setTimeout(playVideo, 2000);
       })
+
+       // learn about other types of 3D model formats you can use here: 	
+      // https://threejs.org/docs/#manual/en/introduction/Loading-3D-models	
+      	
+      // load the model	
+      // loader takes in a few arguments loader(model url, onLoad callback, onProgress callback, onError callback)	
+			loader.load(	
+				// model URL	
+				modelUrl,	
+				// onLoad callback: what get's called once the full model has loaded	
+				function (gltf) {	
+          // gltf.scene contains the Three.js object group that represents the 3d object of the model	
+					scene.add(gltf.scene);	
+          console.log("Model added to scene");	
+          	
+          gltf.scene.scale.multiplyScalar(3);	
+                    	
+          // you can optionally change the position of the model	
+          gltf.scene.position.z = -0.5; // negative Z moves the model in the opposite direction the camera is facing	
+          gltf.scene.position.y = -0.1; // positive Y moves the model up	
+          // gltf.scene.position.x = 10; // positive X moves the model to the right	
+				},	
+				// onProgress callback: optional function for showing progress on model load	
+				function (xhr) {	
+		      // console.log((xhr.loaded / xhr.total * 100) + '% loaded' );	
+	      },	
+				// onError callback	
+				function (error) {	
+					console.error(error);	
+				}	
+			);	
+			document.body.appendChild(ARButton.createButton(renderer));
 
 			window.addEventListener('resize', onWindowResize, false);
 
