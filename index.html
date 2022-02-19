@@ -70,7 +70,7 @@
       window.addEventListener('resize', onWindowResize, false);
 		}
 
-		function onWindowResize() {
+    function onWindowResize() {
 			camera.aspect = window.innerWidth / window.innerHeight;
 			camera.updateProjectionMatrix();
 
@@ -93,11 +93,19 @@
 
 			renderer.render(scene, camera);
 		}
+
+    function aplikujWebsite() {
+      window.open("https://www.youtube.com/watch?v=8PB9GHZ-GiM&ab_channel=PatrickC");
+    }
+
+    function infoliniaWebsite() {
+      window.open('tel:506507759');
+    }
     
     function createCanvasWithVideo() {
       video = document.createElement('video');
       // IMPORTANT: This video has to be a video with transparency! Recommended format is webm
-      video.src = "https://cdn.glitch.me/b09d0ef2-cbb9-4685-be74-25b4dbc9e604%2Fdancer.webm?v=1636679831857";
+      video.src = "https://jurasw.github.io/android-ar-video/IMG_1687.MOV.webm";
       video.crossOrigin = "anonymous"; //important!
       video.load(); // call after changing source
       video.preload = 'auto';
@@ -121,7 +129,7 @@
       // tthe unites here have to corespond to ratio/size of video but scaled down to 
       // webxr units. So in this case the original video was aspect ratio 16 : 9 
       // but those units would be too large for webxr, so we divide by 10
-      const geometry = new THREE.PlaneGeometry(1.6, 0.9); 
+      const geometry = new THREE.PlaneGeometry(0.9, 1.6); 
       
       // then we setup a material associated with the video through a texture
       videoTexture = new THREE.Texture(videoCanvas);
@@ -141,7 +149,6 @@
     function playVideo() {
       video.play();
     }
-
 
   // specify a model URL
   const modelUrl = 'https://cdn.glitch.global/9511f6c0-c3b8-4349-9742-2697568cae91/aplikuj3dBtn.glb?v=1645217865747';
