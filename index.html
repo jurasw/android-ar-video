@@ -169,16 +169,16 @@
 				// onLoad callback: what get's called once the full model has loaded	
 				function (gltf) {	
           // gltf.scene contains the Three.js object group that represents the 3d object of the model	
-					scene.add(gltf.scene);	
+					scene.add(gltf1.scene);	
           console.log("Model added to scene");	
           	
-          gltf.scene.scale.multiplyScalar(0.15);	
+          gltf1.scene.scale.multiplyScalar(0.15);	
                     	
           // you can optionally change the position of the model	
-          gltf.scene.position.z = -0.7; // negative Z moves the model in the opposite direction the camera is facing	
-          gltf.scene.position.y = 0.1; // positive Y moves the model up	
-          gltf.scene.position.x = -0.18; // positive X moves the model to the right	
-
+          gltf1.scene.position.z = -0.7; // negative Z moves the model in the opposite direction the camera is facing	
+          gltf1.scene.position.y = 0.1; // positive Y moves the model up	
+          gltf1.scene.position.x = -0.18; // positive X moves the model to the right	
+          gltf1.scene.on('click', websiteAplikuj());
           //gltf.scene.onclick = infoliniaWebsite();	
 
 				},	
@@ -196,17 +196,17 @@
 				// model URL	
 				modelUrl2,	
 				// onLoad callback: what get's called once the full model has loaded	
-				function (gltf) {	
+				function (gltf2) {	
           // gltf.scene contains the Three.js object group that represents the 3d object of the model	
-					scene.add(gltf.scene);	
+					scene.add(gltf2.scene);	
           console.log("Model added to scene");	
           	
           gltf.scene.scale.multiplyScalar(0.15);	
                     	
           // you can optionally change the position of the model	
-          gltf.scene.position.z = -0.7; // negative Z moves the model in the opposite direction the camera is facing	
-          gltf.scene.position.y = 0.1; // positive Y moves the model up	
-          gltf.scene.position.x = 0.18; // positive X moves the model to the right	
+          gltf2.scene.position.z = -0.7; // negative Z moves the model in the opposite direction the camera is facing	
+          gltf2.scene.position.y = 0.1; // positive Y moves the model up	
+          gltf2.scene.position.x = 0.18; // positive X moves the model to the right	
 
           //gltf.scene.onclick = aplikujWebsite();
         },	
@@ -226,15 +226,15 @@
 				// onLoad callback: what get's called once the full model has loaded	
 				function (gltf) {	
           // gltf.scene contains the Three.js object group that represents the 3d object of the model	
-					scene.add(gltf.scene);	
+					scene.add(gltf3.scene);	
           console.log("Model added to scene");	
           	
-          gltf.scene.scale.multiplyScalar(1);	
+          gltf3.scene.scale.multiplyScalar(1);	
                     	
           // you can optionally change the position of the model	
-          gltf.scene.position.z =  -0.5; // negative Z moves the model in the opposite direction the camera is facing	
-          gltf.scene.position.y = -0.2; // positive Y moves the model up	
-          gltf.scene.position.x =  0; // positive X moves the model to the right	
+          gltf3.scene.position.z =  -0.5; // negative Z moves the model in the opposite direction the camera is facing	
+          gltf3.scene.position.y = -0.2; // positive Y moves the model up	
+          gltf3.scene.position.x =  0; // positive X moves the model to the right	
 				},	
 				// onProgress callback: optional function for showing progress on model load	
 				function (xhr) {	
@@ -249,6 +249,10 @@
 
 			window.addEventListener('resize', onWindowResize, false);
 
+
+        function websiteAplikuj(){
+          window.location.href = "http://stackoverflow.com";
+        };
 	</script>
 </body>
 
